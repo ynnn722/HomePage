@@ -1,0 +1,247 @@
+.hero-bg{
+  background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 55%, #ffffff 100%);
+}
+/* nav link base */
+.nav-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:40px;
+  padding:0 14px;
+  border-radius:14px;
+  font-weight:700;
+  color: rgba(36,48,94,.85);
+  transition: background .15s ease, color .15s ease;
+}
+.nav-link:hover{
+  background: rgba(36,48,94,.06);
+  color: rgba(36,48,94,1);
+}
+
+/* Hero subtle grid */
+.hero-grid{
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.22) 0, rgba(255,255,255,0) 45%),
+    radial-gradient(circle at 80% 40%, rgba(255,255,255,.20) 0, rgba(255,255,255,0) 45%),
+    linear-gradient(to right, rgba(255,255,255,.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.08) 1px, transparent 1px);
+  background-size: auto, auto, 44px 44px, 44px 44px;
+}
+
+/* Service layout */
+.service-row{
+  display:grid;
+  grid-template-columns: 130px 1fr;
+  gap: 14px;
+  align-items: stretch;
+}
+@media (max-width: 640px){
+  .service-row{ grid-template-columns: 1fr; }
+}
+
+.service-tag{
+  border: 1px solid;
+  border-radius: 18px;
+  padding: 14px 16px;
+  font-weight: 900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position: relative;
+}
+
+/* arrow-like shape 느낌 살짝 */
+.service-tag::after{
+  content:"";
+  position:absolute;
+  right:-14px;
+  width:0; height:0;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-left: 14px solid currentColor;
+  opacity:.25;
+}
+@media (max-width: 640px){
+  .service-tag::after{ display:none; }
+}
+
+.service-box{
+  border: 1px solid;
+  border-radius: 22px;
+  padding: 18px 18px;
+  background: white;
+}
+
+/* Contact modal form styles */
+.form-row{
+  display:grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
+  align-items:center;
+  border:1px solid rgba(148,163,184,.45);
+  border-radius: 20px;
+  padding: 14px 16px;
+}
+@media (max-width: 640px){
+  .form-row{ grid-template-columns: 1fr; }
+}
+
+.form-label{
+  font-weight: 900;
+  color: rgba(15,23,42,.85);
+}
+
+.form-input{
+  width:100%;
+  outline:none;
+  border:none;
+  font-weight:700;
+  color: rgba(15,23,42,.9);
+}
+.form-input::placeholder{ color: rgba(100,116,139,.7); }
+
+.form-textarea{
+  width:100%;
+  outline:none;
+  border:none;
+  resize: vertical;
+  font-weight:700;
+  color: rgba(15,23,42,.9);
+}
+.form-textarea::placeholder{ color: rgba(100,116,139,.7); }
+
+/* Floating event badge */
+.event-float{
+  position: fixed;
+  right: 16px;
+  top: 92px;
+  z-index: 45;
+  animation: floaty 3.8s ease-in-out infinite;
+}
+@media (max-width: 768px){
+  .event-float{
+    right: 12px;
+    top: auto;
+    bottom: 18px;
+    animation: floaty 3.8s ease-in-out infinite;
+  }
+}
+
+/* dialog backdrop smooth */
+.modal::backdrop{
+  background: rgba(2,6,23,.55);
+  backdrop-filter: blur(2px);
+}
+
+/* Team cards */
+.team-card{
+  border:1px solid rgba(226,232,240,1);
+  border-radius: 22px;
+  padding: 14px 14px;
+  background: white;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  gap: 10px;
+  box-shadow: 0 10px 24px rgba(2,6,23,.06);
+}
+.team-illust{
+  width: 72px;
+  height: 72px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(36,48,94,.10), rgba(40,53,147,.08));
+  border: 1px solid rgba(148,163,184,.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position: relative;
+  overflow: hidden;
+}
+.team-illust img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.team-illust .fallback-icon{
+  position:absolute;
+}
+.team-title{
+  font-weight: 900;
+  color: rgba(15,23,42,.9);
+  text-align:center;
+  line-height: 1.1;
+}
+
+/* Steps */
+.step-pill{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  border: 1px solid rgba(226,232,240,1);
+  background: white;
+  border-radius: 18px;
+  padding: 12px 12px;
+}
+.step-dot{
+  width:10px;
+  height:10px;
+  border-radius: 999px;
+  margin-top: 6px;
+}
+.step-title{
+  font-weight: 900;
+  color: rgba(15,23,42,.9);
+  font-size: 14px;
+}
+.step-desc{
+  font-size: 12px;
+  color: rgba(100,116,139,.9);
+  margin-top: 2px;
+}
+
+/* Mini contact */
+.mini-contact{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(226,232,240,1);
+  background: rgba(248,250,252,1);
+  color: rgba(51,65,85,1);
+  font-weight: 700;
+}
+.mini-contact i{
+  width: 20px;
+  text-align:center;
+  color: rgba(36,48,94,1);
+}
+/* active nav underline + subtle glow */
+.nav-active{
+  background: transparent !important;
+  color: rgba(36,48,94,1) !important;
+  box-shadow: none !important;
+  position: relative;
+}
+
+.nav-active::after{
+  content: "";
+  position: absolute;
+  left: 12px;              /* nav-link padding 고려 */
+  right: 12px;
+  bottom: 6px;             /* 글씨 아래 위치 */
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(230,90,29,1); /* brand accent */
+  box-shadow: 0 8px 18px rgba(230,90,29,.35); /* 밑에 그림자 느낌 */
+}
+
+/* smooth scroll */
+html{
+  scroll-behavior: smooth;
+}
+
+/* 헤더(고정) 때문에 섹션 제목이 가려지는 거 방지 */
+section{
+  scroll-margin-top: 88px;
+}
