@@ -138,6 +138,26 @@ function onScroll() {
   });
 }
 
+// 이벤트 배너: 토글(접기/펼치기) + 오픈(견적 모달)
+const eventCard = $("#eventCard");
+const eventToggle = $("#eventToggle");
+const eventOpen = $("#eventOpen");
+
+
+if (eventToggle && eventCard) {
+  eventToggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    eventCard.classList.toggle("event-collapsed");
+  });
+}
+
+if (eventOpen && quoteModal) {
+  eventOpen.addEventListener("click", () => {
+    openModal(quoteModal);
+  });
+}
+
 window.addEventListener("scroll", onScroll, { passive: true });
 window.addEventListener("resize", onScroll);
 

@@ -1,5 +1,7 @@
 .hero-bg{
-  background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 55%, #ffffff 100%);
+  background: radial-gradient(900px 420px at 15% 15%, rgba(36,48,94,.08), transparent 55%),
+              radial-gradient(700px 360px at 85% 25%, rgba(230,90,29,.10), transparent 55%),
+              linear-gradient(to bottom, #ffffff 0%, #f8fafc 55%, #ffffff 100%);
 }
 /* nav link base */
 .nav-link{
@@ -23,7 +25,7 @@
   background-image:
     radial-gradient(circle at 20% 20%, rgba(255,255,255,.22) 0, rgba(255,255,255,0) 45%),
     radial-gradient(circle at 80% 40%, rgba(255,255,255,.20) 0, rgba(255,255,255,0) 45%),
-    linear-gradient(to right, rgba(255,255,255,.08) 1px, transparent 1px),
+    linear-gradient(to right, rgba(130, 94, 94, 0.08) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255,255,255,.08) 1px, transparent 1px);
   background-size: auto, auto, 44px 44px, 44px 44px;
 }
@@ -124,6 +126,71 @@
     top: auto;
     bottom: 18px;
     animation: floaty 3.8s ease-in-out infinite;
+  }
+}
+
+/* floating event hover */
+#eventCard{
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+#eventCard:hover{
+  border-color: rgba(230,90,29,.45) !important; /* brand accent */
+  box-shadow: 0 18px 34px rgba(2,6,23,.14) !important;
+}
+
+#eventCard.event-collapsed:hover{
+  border-color: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* floating event toggle button */
+.event-toggle{
+  position: fixed;
+  right: 16px;
+  top: 92px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: #E65A1D;
+  color: #fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 12px 24px rgba(2,6,23,.18);
+  z-index: 60;
+  transition: transform .15s ease, filter .15s ease;
+}
+
+.event-toggle:hover{
+  transform: translateY(-2px);
+  filter: brightness(0.98);
+}
+
+/* event-collapsed */
+.event-collapsed{
+  width: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.event-collapsed #eventContent{
+  display: none;
+}
+
+.event-collapsed #eventOpen{
+  display: none;
+}
+
+/* 모바일에서 아래로 내려가게 */
+@media (max-width: 768px){
+  .event-toggle{
+    top: auto;
+    bottom: 18px;
+    right: 12px;
   }
 }
 
