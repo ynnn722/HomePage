@@ -83,7 +83,7 @@ function closeModal(modal) {
   // ----------------------------
   // Top menu active (ScrollSpy)
   // ----------------------------
-  const sectionIds = ["home", "services", "team", "growth", "contact"];
+  const sectionIds = ["home", "services", "growth", "team", "contact"];
   const sections = sectionIds
     .map((id) => document.getElementById(id))
     .filter(Boolean);
@@ -115,9 +115,12 @@ function closeModal(modal) {
   });
 
   // --- ScrollSpy (stable 방식: scrollY 기준) ---
-const HEADER_OFFSET = 110; // 헤더 높이 + 여유 (필요하면 90~130 사이로 조절)
+const HEADER_OFFSET = 110; // 헤더 높이 + 여유 공간 고려
 
 function getCurrentSectionId() {
+  const nearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 8;
+  if (nearBottom) return "contact";
+
   const y = window.scrollY + HEADER_OFFSET;
 
   let current = sections[0]?.id || "home";
