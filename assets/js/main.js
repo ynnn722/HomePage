@@ -161,6 +161,7 @@ if (eventOpen && quoteModal) {
   });
 }
 
+
 window.addEventListener("scroll", onScroll, { passive: true });
 window.addEventListener("resize", onScroll);
 
@@ -168,4 +169,26 @@ window.addEventListener("resize", onScroll);
   const hash = (location.hash || "").replace("#", "");
 if (sectionIds.includes(hash)) setActive(hash);
 else setActive(getCurrentSectionId());
+
+// --- Tabs (Collaboration) ---
+// DOM이 만들어진 뒤에 실행되게, init 내부에서 실행
+const tabBtns = document.querySelectorAll(".tab-btn");
+const tabPanels = document.querySelectorAll(".tab-panel");
+
+if (tabBtns.length && tabPanels.length) {
+  tabBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const key = btn.getAttribute("data-tab");
+
+      // 버튼 active
+      tabBtns.forEach((b) => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+
+      // 패널 active
+      tabPanels.forEach((p) => p.classList.remove("is-active"));
+      const panel = document.querySelector(`.tab-panel[data-panel="${key}"]`);
+      if (panel) panel.classList.add("is-active");
+    });
+  });
+}
 })();

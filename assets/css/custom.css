@@ -70,8 +70,32 @@
 .service-box{
   border: 1px solid;
   border-radius: 22px;
-  padding: 18px 18px;
+  padding: 16px 16px;
   background: white;
+}
+
+.service-summary{
+  /* font-weight: 800; */
+  color: rgba(15,23,42,1);
+  margin-bottom: 12px;
+}
+
+.service-chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.service-chip{
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(226,232,240,1);
+  background: rgba(248,250,252,1);
+  color: rgba(51,65,85,1);
+  font-weight: 800;
+  font-size: 12px;
 }
 
 /* Growth layout */
@@ -175,26 +199,8 @@
 }
 .growth-list li{ margin: 6px 0; }
 
-.growth-tags{
-  margin-top: 12px;
-  display:flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.tag-chip{
-  display:inline-flex;
-  align-items:center;
-  padding: 7px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(226,232,240,1);
-  background: rgba(248,250,252,1);
-  color: rgba(71,85,105,1);
-  font-weight: 800;
-  font-size: 12px;
-}
-
 /* Team layout */
-.process-card, .roles-card, .support-card{
+.process-card{
   border: 1px solid rgba(226,232,240,1);
   border-radius: 28px;
   background: #fff;
@@ -202,7 +208,7 @@
   box-shadow: 0 12px 28px rgba(2,6,23,.07);
 }
 
-.process-badge, .roles-badge{
+.process-badge{
   width: 52px;
   height: 52px;
   border-radius: 18px;
@@ -321,6 +327,54 @@
   font-weight: 650;
 }
 
+/* Tabs card */
+.tabs-card{
+  border: 1px solid rgba(226,232,240,1);
+  border-radius: 28px;
+  background: #fff;
+  padding: 18px 18px;
+  box-shadow: 0 12px 28px rgba(2,6,23,.07);
+}
+
+.tabs-head{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 22px;
+  border: 1px solid rgba(226,232,240,1);
+  background: rgba(248,250,252,1);
+}
+
+.tab-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  padding: 12px 12px;
+  border-radius: 18px;
+  font-weight: 1000;
+  color: rgba(71,85,105,1);
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.tab-btn.is-active{
+  background: #fff;
+  color: rgba(36,48,94,1);
+  border-color: rgba(226,232,240,1);
+  box-shadow: 0 10px 24px rgba(2,6,23,.06);
+}
+
+.tab-panel{
+  display: none;
+  padding: 18px 6px 6px 6px;
+}
+
+.tab-panel.is-active{
+  display: block;
+}
+
 /* Contact layout */
 .contact-card{
   border: 1px solid rgba(226,232,240,1);
@@ -328,11 +382,71 @@
   overflow: hidden;
   box-shadow: 0 18px 44px rgba(2,6,23,.10);
   background: #fff;
+
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+
   display: grid;
   grid-template-columns: 1.15fr .85fr;
 }
+/* ===== Contact mobile ===== */
 @media (max-width: 1024px){
-  .contact-card{ grid-template-columns: 1fr; }
+  .contact-card{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    transform: none !important;
+    left: auto !important;
+  }
+
+  .contact-left,
+  .contact-right{
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .contact-info-value{
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .contact-info-value{
+    font-size: 13px;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 100%;
+  }
+
+  .contact-mini{
+    padding: 14px 14px;
+  }
+
+  .contact-mini-title{
+    font-size: 14px;
+  }
+
+  .contact-mini-desc{
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .contact-mini-grid{
+    gap: 8px;
+  }
+
+  .mini-chip{
+    padding: 10px 12px;
+    font-size: 12px;
+    line-height: 1.2;
+  }
 }
 
 .contact-left{
